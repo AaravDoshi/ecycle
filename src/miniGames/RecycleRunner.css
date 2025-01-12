@@ -1,0 +1,43 @@
+.runner-container {
+  text-align: center;
+  background-color: #f9f9f9;
+  padding: 20px;
+  height: 100vh;
+}
+
+.runner-canvas {
+  display: block;
+  margin: 20px auto;
+  border: 2px solid #4caf50;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.runner-start {
+  text-align: center;
+  padding: 20px;
+}
+
+.runner-button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.runner-button:hover {
+  background-color: #388e3c;
+}
+
+.runner-overlay {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
