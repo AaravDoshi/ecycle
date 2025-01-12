@@ -4,8 +4,8 @@ import Navbar from './Navbar';
 import LandingPage from './LandingPage';
 import MapView from './MapView';
 import Awareness from './Awareness';
-import Gamification from './gamification/Gamification'
-import SortEwaste from './miniGames/MiniGames';
+import Gamification from '../gamification/Gamification'
+import SortEwaste from '../miniGames/MiniGames';
 import AboutUs from './AboutUs'; // Update the path if necessary
 
 const App = () => {
