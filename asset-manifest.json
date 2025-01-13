@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/static/css/main.7abe5bdb.css",
-    "main.js": "/static/js/main.1451dd19.js",
+    "main.css": "/static/css/main.a6d2c06d.css",
+    "main.js": "/static/js/main.610c3cb0.js",
     "static/media/e-waste-bg.jpg": "/static/media/e-waste-bg.ff62038780c0fbba08e6.jpg",
     "index.html": "/index.html",
-    "main.7abe5bdb.css.map": "/static/css/main.7abe5bdb.css.map",
-    "main.1451dd19.js.map": "/static/js/main.1451dd19.js.map"
+    "main.a6d2c06d.css.map": "/static/css/main.a6d2c06d.css.map",
+    "main.610c3cb0.js.map": "/static/js/main.610c3cb0.js.map"
   },
   "entrypoints": [
-    "static/css/main.7abe5bdb.css",
-    "static/js/main.1451dd19.js"
+    "static/css/main.a6d2c06d.css",
+    "static/js/main.610c3cb0.js"
   ]
 }
