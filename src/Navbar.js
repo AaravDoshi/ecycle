@@ -1,26 +1,17 @@
-import React, { useState } from 'react';
-import './Navbar.css';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
+import "./Navbar.css";
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
-
   return (
     <nav className="navbar">
-      <div className="navbar-container">
-        <h1 className="navbar-title">Team E-Cycle</h1>
-        <button className="navbar-toggle" onClick={() => setIsOpen(!isOpen)}>
-          <span className="toggle-bar"></span>
-          <span className="toggle-bar"></span>
-          <span className="toggle-bar"></span>
-        </button>
-        <div className={`navbar-links ${isOpen ? 'open' : ''}`}>
-          <Link to="/" className="navbar-link">Home</Link>
-          <Link to="/bin-finder" className="navbar-link">Bin Finder</Link>
-          <Link to="/awareness" className="navbar-link">Awareness</Link>
-          <Link to="/gamification" className="navbar-link">Games</Link>
-          <Link to="/about-us">About Us</Link>
-        </div>
+      <div className="navbar-logo">
+        <Link to="/">Team E-Cycle</Link>
+      </div>
+      <div className="navbar-links">
+        <Link to="/">Home</Link>
+        <Link to="/courses">Courses of Action</Link>
+        <Link to="/bin-finder">Find an E-bin</Link>
       </div>
     </nav>
   );
