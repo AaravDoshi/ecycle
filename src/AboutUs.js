@@ -3,34 +3,34 @@ import "./AboutUs.css";
 
 const teamMembers = [
   {
-    name: "Doshi Solo",
-    role: "Team Lead",
+    name: "Aarav Doshi",
+    role: "Team Lead & Developer",
     description: "Passionate about sustainability and innovation.",
     img: "doshisolo.jpg",
   },
   {
-    name: "Gayatri Solo",
-    role: "Developer",
+    name: "Gayatri Srivastava",
+    role: "Admin",
     description: "Built the website to revolutionize e-waste management.",
     img: "gayatrisolo.jpg",
   },
   {
-    name: "Raheel Solo",
-    role: "Marketing",
+    name: "Raheel Shah",
+    role: "Logistics",
     description: "Spread awareness through campaigns and social media.",
     img: "raheelsolo.jpg",
   },
   {
-    name: "Emily Davis",
-    role: "Operations",
+    name: "Divina Minocha",
+    role: "Research",
     description: "Coordinated logistics and e-bin placements.",
-    img: "team6.jpg",
+    img: "team7.jpg",
   },
   {
-    name: "Michael Brown",
-    role: "Researcher",
+    name: "Reeva Agrawal",
+    role: "Outreach",
     description: "Conducted surveys and provided actionable insights.",
-    img: "team8.jpg",
+    img: "reevasolo.jpg",
   },
 ];
 

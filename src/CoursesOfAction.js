@@ -82,14 +82,14 @@ const CoursesOfAction = () => {
       <div className="campaign-item">
         <h4>Seminars</h4>
         <p>
-          Conducted X seminars educating individuals and businesses on
+          Conducted seminars educating individuals and businesses on
           proper e-waste disposal.
         </p>
       </div>
       <div className="campaign-item">
         <h4>Webinars</h4>
         <p>
-          Hosted Y webinars with industry experts, reaching a large
+          Hosted 2 webinars, reaching a large
           audience.
         </p>
       </div>
