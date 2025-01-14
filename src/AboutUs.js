@@ -4,13 +4,13 @@ import "./AboutUs.css";
 const teamMembers = [
   {
     name: "Aarav Doshi",
-    role: "Team Lead & Developer",
-    description: "Passionate about sustainability and innovation.",
+    role: "Team Leader & Developer",
+    description: "Developed the website ",
     img: "doshisolo.jpg",
   },
   {
     name: "Gayatri Srivastava",
-    role: "Admin",
+    role: "Analytics Coordinator",
     description: "Built the website to revolutionize e-waste management.",
     img: "gayatrisolo.jpg",
   },
@@ -22,13 +22,13 @@ const teamMembers = [
   },
   {
     name: "Divina Minocha",
-    role: "Research",
+    role: "Market Research & Strategy",
     description: "Coordinated logistics and e-bin placements.",
-    img: "team7.jpg",
+    img: "divinasolo.jpg",
   },
   {
     name: "Reeva Agrawal",
-    role: "Outreach",
+    role: "Social Media",
     description: "Conducted surveys and provided actionable insights.",
     img: "reevasolo.jpg",
   },
