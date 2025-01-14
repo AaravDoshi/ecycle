@@ -5,14 +5,32 @@ import "./Navbar.css";
 const Navbar = () => {
   return (
     <nav className="navbar">
-      <div className="navbar-logo">
-        <Link to="/">Team E-Cycle</Link>
+      <div className="logo">
+        <Link to="/">
+          <img
+            src={`${process.env.PUBLIC_URL}/logo.png`}
+            alt="Team E-cycle"
+            className="logo-image"
+          />
+        </Link>
       </div>
-      <div className="navbar-links">
-        <Link to="/">Home</Link>
-        <Link to="/courses">Courses of Action</Link>
-        <Link to="/bin-finder">Find an E-bin</Link>
-      </div>
+      <ul className="nav-links">
+        <li>
+          <Link to="/">Home</Link>
+        </li>
+        <li>
+          <Link to="/bin-finder">Bin Finder</Link>
+        </li>
+        <li>
+          <Link to="/courses-of-action">Courses of Action</Link>
+        </li>
+        <li>
+          <Link to="/about-us">About Us</Link>
+        </li>
+        <li>
+          <Link to="/awareness">Awareness</Link>
+        </li>
+      </ul>
     </nav>
   );
 };

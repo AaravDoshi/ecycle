@@ -1,65 +1,84 @@
-import React, { useState, useEffect } from 'react';
-import { MapContainer, TileLayer, Marker, Popup, useMapEvents } from 'react-leaflet';
+import React, { useState, useEffect } from "react";
+import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
-import './MapView.css';
 
 // Custom icons for e-bin and user location
 const eBinIcon = new L.Icon({
-  iconUrl: 'https://cdn-icons-png.flaticon.com/512/1345/1345874.png', // Updated to a trash bin icon
-  iconSize: [30, 40],
+  iconUrl: "pin.png", // E-bin icon
+  iconSize: [40, 40],
   iconAnchor: [15, 40],
-  className: 'text-green-600' // Ensure green-colored markers
 });
 
 const userIcon = new L.Icon({
-  iconUrl: 'https://cdn-icons-png.flaticon.com/512/61/61168.png',
+  iconUrl: "https://cdn-icons-png.flaticon.com/512/61/61168.png", // User location icon
   iconSize: [20, 20],
   iconAnchor: [10, 10],
 });
 
+// Updated locations
 const locations = [
   {
     id: 1,
-    name: "BKC E-Waste Hub",
-    address: "G Block BKC, Near MCA Club",
-    area: "Bandra Kurla Complex",
-    timing: "24/7",
-    position: { lat: 19.0568, lng: 72.8639 }
+    name: "Bin @ Mizuho Bank, Lower Parel",
+    description: "Eco-friendly bin in the heart of the city.",
+    googleLink: "https://maps.app.goo.gl/4y3J2cmdh5gxgaWYA",
+    position: { lat: 18.999340642299124, lng: 72.82882928415198 },
   },
   {
     id: 2,
-    name: "Worli Collection Center",
-    address: "Prabhadevi Road, Near Century Bazaar",
-    area: "Worli",
-    timing: "9 AM - 6 PM",
-    position: { lat: 19.0176, lng: 72.8156 }
+    name: "Bin @ Oberoi Esquire A Wing, Goregaon",
+    description: "E-bin placed at Wing A of the complex.",
+    googleLink: "https://maps.app.goo.gl/wiPmmdK1ikcmkWqX9",
+    position: { lat: 19.1701, lng: 72.8637 },
   },
   {
     id: 3,
-    name: "Juhu Beach E-Recycling",
-    address: "Juhu Tara Road, Near Juhu Beach",
-    area: "Juhu",
-    timing: "10 AM - 8 PM",
-    position: { lat: 19.0883, lng: 72.8264 }
+    name: "Bin @ Oberoi Esquire B Wing, Goregaon",
+    description: "E-bin placed at Wing B of the complex.",
+    googleLink: "https://maps.app.goo.gl/wiPmmdK1ikcmkWqX9",
+    position: { lat: 19.1702, lng: 72.8643 },
   },
   {
     id: 4,
-    name: "Fort Heritage Point",
-    address: "D.N. Road, Near CST Station",
-    area: "Fort",
-    timing: "24/7",
-    position: { lat: 18.9442, lng: 72.8337 }
+    name: "Bin @ Lakshchandi Heights, Goregaon",
+    description: "Convenient e-bin for sustainable disposal.",
+    googleLink: "https://maps.app.goo.gl/EnmmSoQhz9gpSA16A",
+    position: { lat: 19.172857142813385, lng: 72.86990609417894 },
   },
   {
     id: 5,
-    name: "Colaba Collection Hub",
-    address: "Colaba Causeway, Near Regal Cinema",
-    area: "Colaba",
-    timing: "8 AM - 8 PM",
-    position: { lat: 18.9067, lng: 72.8147 }
-  }
+    name: "Bin @ Rustomjee, Andheri",
+    description: "Accessible e-bin for your e-waste.",
+    googleLink: "https://maps.app.goo.gl/e6egrMpJx8JaRmAy9",
+    position: { lat: 19.11655081101818, lng: 72.85435203812547 },
+  },
+  {
+    id: 6,
+    name: "Bin @ 25 South, Prabhadevi",
+    description: "E-bin available near the seashore.",
+    googleLink: "https://maps.app.goo.gl/SKH2WMh23hMguSRk7",
+    position: { lat: 19.01882456037396, lng: 72.82976778257127 },
+  },
+  {
+    id: 7,
+    name: "Bin @ Rajive Plastics, Andheri",
+    description: "Eco-friendly bin for efficient waste disposal.",
+    googleLink: "https://maps.app.goo.gl/M3zootxMdX36TcLe9",
+    position: { lat: 19.12241689770859, lng: 72.86360470928979 },
+  },
 ];
+
+// Component to re-center the map
+const RecenterMap = ({ lat, lng }) => {
+  const map = useMap();
+  useEffect(() => {
+    if (lat && lng) {
+      map.setView([lat, lng], 16); // Recenter map with appropriate zoom level
+    }
+  }, [lat, lng, map]);
+  return null;
+};
 
 const MapView = () => {
   const [userLocation, setUserLocation] = useState(null);
@@ -70,7 +89,7 @@ const MapView = () => {
         (position) => {
           const userPos = {
             lat: position.coords.latitude,
-            lng: position.coords.longitude
+            lng: position.coords.longitude,
           };
           setUserLocation(userPos);
         },
@@ -83,18 +102,21 @@ const MapView = () => {
 
   return (
     <div className="h-screen w-full relative">
-      <MapContainer 
-        center={[19.076, 72.8777]} 
-        zoom={13} 
-        scrollWheelZoom={true} 
+      <MapContainer
+        center={[19.076, 72.8777]} // Default center (Mumbai)
+        zoom={16}
+        scrollWheelZoom={true}
         className="h-full w-full"
-        style={{ height: '100vh', width: '100vw' }}
+        style={{ height: "100vh", width: "100vw" }}
       >
         {/* Tile layer for map background */}
         <TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         />
+
+        {/* Recenter map to user's location */}
+        {userLocation && <RecenterMap lat={userLocation.lat} lng={userLocation.lng} />}
 
         {/* Markers for e-bin locations */}
         {locations.map((location) => (
@@ -106,9 +128,15 @@ const MapView = () => {
             <Popup>
               <div className="text-sm">
                 <h3 className="font-bold text-base mb-1">{location.name}</h3>
-                <p className="text-gray-700">{location.address}</p>
-                <p className="text-gray-600">Area: {location.area}</p>
-                <p className="text-green-600 font-semibold">Timing: {location.timing}</p>
+                <p className="text-gray-700">{location.description}</p>
+                <a
+                  href={location.googleLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-green-500 underline hover:text-green-700"
+                >
+                  Open in Google Maps
+                </a>
               </div>
             </Popup>
           </Marker>
@@ -116,7 +144,10 @@ const MapView = () => {
 
         {/* Marker for user location */}
         {userLocation && (
-          <Marker position={[userLocation.lat, userLocation.lng]} icon={userIcon}>
+          <Marker
+            position={[userLocation.lat, userLocation.lng]}
+            icon={userIcon}
+          >
             <Popup>
               <div className="text-sm">
                 <h3 className="font-bold text-base">Your Location</h3>
@@ -129,14 +160,16 @@ const MapView = () => {
       {/* Header */}
       <div className="absolute top-4 left-1/2 transform -translate-x-1/2">
         <div className="bg-white px-4 py-2 rounded-full shadow-lg">
-          <h1 className="text-xl font-bold text-gray-800">Mumbai E-Waste Bins</h1>
+          <h1 className="text-xl font-bold text-gray-800">Find an E-bin</h1>
         </div>
       </div>
 
       {/* Footer Note */}
       <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2">
         <div className="bg-white px-4 py-2 rounded-lg shadow-lg">
-          <p className="text-sm text-gray-600">Use the map to find the nearest e-waste bins in Mumbai.</p>
+          <p className="text-sm text-gray-600">
+            Use the map to find the nearest e-waste bins in Mumbai.
+          </p>
         </div>
       </div>
     </div>

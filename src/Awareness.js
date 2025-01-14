@@ -1,114 +1,121 @@
-import React from 'react';
-import './Awareness.css'; // Import CSS file for styles
+import React from "react";
+import "./Awareness.css";
 
-// Articles Data
-const articles = [
+const posts = [
   {
-    title: "Electronic Waste (E-Waste)",
-    description: "A comprehensive fact sheet on the health and environmental impacts of e-waste.",
-    thumbnail: "https://via.placeholder.com/300x200?text=E-Waste+Fact+Sheet",
-    link: "https://www.who.int/news-room/fact-sheets/detail/electronic-waste-(e-waste)"
+    id: 1,
+    title: "Why E-Waste Matters",
+    category: "Awareness",
+    description: "Learn why managing e-waste is crucial for our planet's health.",
+    link: "#",
+    image: `${process.env.PUBLIC_URL}/placeholder1.jpg`,
   },
   {
-    title: "Environmental Impact of E-Waste",
-    description: "Explore the growing environmental challenges posed by e-waste worldwide.",
-    thumbnail: "https://via.placeholder.com/300x200?text=Environmental+Impact",
-    link: "https://earth.org/environmental-impact-of-e-waste/"
+    id: 2,
+    title: "Recycling Myths Busted",
+    category: "Education",
+    description: "Debunk the common myths about recycling and e-waste.",
+    link: "#",
+    image: `${process.env.PUBLIC_URL}/placeholder2.jpg`,
   },
   {
-    title: "E-Waste and Health Hazards",
-    description: "Scientific research on the harmful health effects caused by improper e-waste handling.",
-    thumbnail: "https://via.placeholder.com/300x200?text=Health+Hazards",
-    link: "https://www.sciencedirect.com/science/article/abs/pii/S2215153220303925"
+    id: 3,
+    title: "How to Recycle E-Waste",
+    category: "Tips",
+    description: "Step-by-step guide on how to recycle e-waste effectively.",
+    link: "#",
+    image: `${process.env.PUBLIC_URL}/placeholder3.jpg`,
   },
   {
-    title: "Toxicology of E-Waste",
-    description: "An in-depth look at the toxicological impacts of e-waste on ecosystems.",
-    thumbnail: "https://via.placeholder.com/300x200?text=Toxicology",
-    link: "https://pmc.ncbi.nlm.nih.gov/articles/PMC2963874/"
+    id: 4,
+    title: "Top 10 Recycling Facts",
+    category: "Awareness",
+    description: "Discover surprising facts about recycling e-waste.",
+    link: "#",
+    image: `${process.env.PUBLIC_URL}/placeholder4.jpg`,
   },
   {
-    title: "Environmental Risks of E-Waste",
-    description: "Understanding the growing environmental risks associated with e-waste.",
-    thumbnail: "https://via.placeholder.com/300x200?text=Environmental+Risks",
-    link: "https://www.genevaenvironmentnetwork.org/resources/updates/the-growing-environmental-risks-of-e-waste/"
+    id: 5,
+    title: "E-Waste and the Environment",
+    category: "Environment",
+    description: "Understand how e-waste impacts our environment.",
+    link: "#",
+    image: `${process.env.PUBLIC_URL}/placeholder5.jpg`,
   },
   {
-    title: "The E-Waste Problem",
-    description: "59 million tons of e-waste: Is the problem spiraling out of control?",
-    thumbnail: "https://via.placeholder.com/300x200?text=E-Waste+Problem",
-    link: "https://www.nrdc.org/stories/59-million-tons-our-e-waste-problem-getting-out-control"
-  }
+    id: 6,
+    title: "New Tech in Recycling",
+    category: "Innovation",
+    description: "Explore the latest technologies in e-waste recycling.",
+    link: "#",
+    image: `${process.env.PUBLIC_URL}/placeholder6.jpg`,
+  },
 ];
 
-// Videos Data
 const videos = [
   {
-    title: "E-Waste Management",
-    src: "https://www.youtube.com/embed/5k-PR4y_ng0"
+    id: 1,
+    title: "What is E-Waste?",
+    category: "Awareness",
+    description: "A comprehensive introduction to e-waste management.",
+    link: "https://www.youtube.com/embed/-uyIzKIw0xY",
+    image: `${process.env.PUBLIC_URL}/video-placeholder1.jpg`,
   },
   {
-    title: "Effects of E-Waste",
-    src: "https://www.youtube.com/embed/90ixtgA9uMs"
+    id: 2,
+    title: "How to Recycle E-Waste",
+    category: "Education",
+    description: "Learn the basics of e-waste recycling in this video.",
+    link: "https://www.youtube.com/embed/U3KUJTDPsSE",
+    image: `${process.env.PUBLIC_URL}/video-placeholder2.jpg`,
   },
-  {
-    title: "E-Waste Problem Overview",
-    src: "https://www.youtube.com/embed/-uyIzKIw0xY"
-  },
-  {
-    title: "E-Waste Recycling Solutions",
-    src: "https://www.youtube.com/embed/U3KUJTDPsSE"
-  }
 ];
 
 const Awareness = () => {
   return (
     <div className="awareness-container">
-      <h1 className="awareness-title">E-Waste Awareness</h1>
-      <p className="awareness-description">
-        Learn about the importance of managing e-waste responsibly and discover how you can contribute to a cleaner environment.
+      <h1>Awareness</h1>
+      <p>
+        Explore our curated posts and videos to learn more about e-waste
+        management, recycling, and sustainability.
       </p>
-
-      {/* Videos Section */}
-      <div className="awareness-section">
-        <h2 className="awareness-section-title">Videos</h2>
-        <div className="content-grid">
-          {videos.map((video, index) => (
-            <div key={index} className="video-card">
-              <iframe
-                src={video.src}
-                title={video.title}
-                className="video-frame"
-                allowFullScreen
-              ></iframe>
-              <h3 className="video-title">{video.title}</h3>
+      <div className="masonry-layout">
+        {posts.map((post) => (
+          <div key={post.id} className="masonry-item">
+            <div className="image-container">
+              <img src={post.image} alt={post.title} />
+              <span className="category-badge">{post.category}</span>
             </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Articles Section */}
-      <div className="awareness-section">
-        <h2 className="awareness-section-title">Articles</h2>
-        <div className="content-grid">
-          {articles.map((article, index) => (
-            <div key={index} className="article-card">
-              <img src={article.thumbnail} alt={article.title} className="article-thumbnail" />
-              <div className="article-content">
-                <h3 className="article-title">{article.title}</h3>
-                <p className="article-description">{article.description}</p>
-                <a
-                  href={article.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="article-link"
-                >
-                  Read More →
-                </a>
-              </div>
+            <div className="content-container">
+              <h3>{post.title}</h3>
+              <p className="description">{post.description}</p>
+              <a href={post.link} className="read-more">
+                Read More
+              </a>
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
+
+        {videos.map((video) => (
+          <div key={video.id} className="masonry-item video-item">
+            <div className="image-container">
+              <img src={video.image} alt={video.title} />
+              <span className="category-badge">{video.category}</span>
+            </div>
+            <div className="content-container">
+              <h3>{video.title}</h3>
+              <p className="description">{video.description}</p>
+              <a
+                href={video.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="watch-video"
+              >
+                Watch Video
+              </a>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );
