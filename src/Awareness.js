@@ -1,119 +1,111 @@
 import React from "react";
 import "./Awareness.css";
 
-const posts = [
+const articles = [
   {
-    id: 1,
-    title: "Why E-Waste Matters",
-    category: "Awareness",
-    description: "Learn why managing e-waste is crucial for our planet's health.",
-    link: "#",
-    image: `${process.env.PUBLIC_URL}/placeholder1.jpg`,
+    title: "Electronic Waste (E-Waste) Fact Sheet",
+    description:
+      "Discover the pressing issues of e-waste and its environmental impact.",
+    link: "https://www.who.int/news-room/fact-sheets/detail/electronic-waste-(e-waste)",
+    img: `${process.env.PUBLIC_URL}thumbnail1.jpg`,
   },
   {
-    id: 2,
-    title: "Recycling Myths Busted",
-    category: "Education",
-    description: "Debunk the common myths about recycling and e-waste.",
-    link: "#",
-    image: `${process.env.PUBLIC_URL}/placeholder2.jpg`,
+    title: "Environmental Risks of E-Waste",
+    description:
+      "Explore the environmental and health risks associated with e-waste.",
+    link: "https://www.genevaenvironmentnetwork.org/resources/updates/the-growing-environmental-risks-of-e-waste/",
+    img: `${process.env.PUBLIC_URL}thumbnail2.svg`,
   },
   {
-    id: 3,
-    title: "How to Recycle E-Waste",
-    category: "Tips",
-    description: "Step-by-step guide on how to recycle e-waste effectively.",
-    link: "#",
-    image: `${process.env.PUBLIC_URL}/placeholder3.jpg`,
+    title: "Sustainable Electronics and Circular Design",
+    description:
+      "Learn about sustainable approaches to reducing e-waste.",
+    link: "https://www.eletimes.com/sustainable-electronics-in-reducing-e-waste-through-circular-design",
+    img: `${process.env.PUBLIC_URL}thumbnail 3.jpeg`,
   },
   {
-    id: 4,
-    title: "Top 10 Recycling Facts",
-    category: "Awareness",
-    description: "Discover surprising facts about recycling e-waste.",
-    link: "#",
-    image: `${process.env.PUBLIC_URL}/placeholder4.jpg`,
+    title: "Funding for E-Waste Recycling",
+    description: "Insights into funding opportunities for e-waste recycling.",
+    link: "https://councilmagazine.com.au/funding-to-support-e-waste-recycling/",
+    img: `${process.env.PUBLIC_URL}thumbnail4.jpeg`,
   },
   {
-    id: 5,
-    title: "E-Waste and the Environment",
-    category: "Environment",
-    description: "Understand how e-waste impacts our environment.",
-    link: "#",
-    image: `${process.env.PUBLIC_URL}/placeholder5.jpg`,
+    title: "Countries Leading E-Waste Recycling",
+    description: "Video insights into countries pioneering e-waste recycling.",
+    link: "https://www.weforum.org/videos/countries-leading-recycling-e-waste/",
+    img: `${process.env.PUBLIC_URL}thumbnail5.svg`,
   },
   {
-    id: 6,
-    title: "New Tech in Recycling",
-    category: "Innovation",
-    description: "Explore the latest technologies in e-waste recycling.",
-    link: "#",
-    image: `${process.env.PUBLIC_URL}/placeholder6.jpg`,
+    title: "E-Waste Management Market Growth",
+    description: "Explore the future of the e-waste management market.",
+    link: "https://www.newstrail.com/e-waste-management-market-to-set-phenomenal-growth-by-2032-enviro-hub-call2recycle-mba-polymers/",
+    img: `${process.env.PUBLIC_URL}thumbnail6.jpg`,
   },
 ];
 
 const videos = [
   {
-    id: 1,
-    title: "What is E-Waste?",
-    category: "Awareness",
-    description: "A comprehensive introduction to e-waste management.",
-    link: "https://www.youtube.com/embed/-uyIzKIw0xY",
-    image: `${process.env.PUBLIC_URL}/video-placeholder1.jpg`,
+    title: "Understanding E-Waste",
+    link: "https://www.youtube.com/watch?v=5k-PR4y_ng0",
   },
   {
-    id: 2,
-    title: "How to Recycle E-Waste",
-    category: "Education",
-    description: "Learn the basics of e-waste recycling in this video.",
-    link: "https://www.youtube.com/embed/U3KUJTDPsSE",
-    image: `${process.env.PUBLIC_URL}/video-placeholder2.jpg`,
+    title: "Circular Economy and E-Waste",
+    link: "https://www.youtube.com/watch?v=KxGbqRF3-_0",
+  },
+  {
+    title: "E-Waste Recycling Innovations",
+    link: "https://www.youtube.com/watch?v=FoSc5h4yxHc",
+  },
+  {
+    title: "Global Perspectives on E-Waste",
+    link: "https://www.youtube.com/watch?v=IqxwnmlUUts",
   },
 ];
 
 const Awareness = () => {
   return (
     <div className="awareness-container">
-      <h1>Awareness</h1>
-      <p>
-        Explore our curated posts and videos to learn more about e-waste
-        management, recycling, and sustainability.
+      <h1 className="awareness-title">Awareness</h1>
+      <p className="awareness-subtitle">
+        Learn more about e-waste management through articles and videos.
       </p>
-      <div className="masonry-layout">
-        {posts.map((post) => (
-          <div key={post.id} className="masonry-item">
-            <div className="image-container">
-              <img src={post.image} alt={post.title} />
-              <span className="category-badge">{post.category}</span>
-            </div>
-            <div className="content-container">
-              <h3>{post.title}</h3>
-              <p className="description">{post.description}</p>
-              <a href={post.link} className="read-more">
-                Read More
-              </a>
-            </div>
+
+      {/* Articles Section */}
+      <h2 className="section-title">Articles</h2>
+      <div className="articles-grid">
+        {articles.map((article, index) => (
+          <div className="article-card" key={index}>
+            <img
+              src={article.img}
+              alt={article.title}
+              className="article-thumbnail"
+            />
+            <h3 className="article-title">{article.title}</h3>
+            <p className="article-description">{article.description}</p>
+            <a
+              href={article.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="read-more-link"
+            >
+              Read More
+            </a>
           </div>
         ))}
+      </div>
 
-        {videos.map((video) => (
-          <div key={video.id} className="masonry-item video-item">
-            <div className="image-container">
-              <img src={video.image} alt={video.title} />
-              <span className="category-badge">{video.category}</span>
-            </div>
-            <div className="content-container">
-              <h3>{video.title}</h3>
-              <p className="description">{video.description}</p>
-              <a
-                href={video.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="watch-video"
-              >
-                Watch Video
-              </a>
-            </div>
+      {/* Videos Section */}
+      <h2 className="section-title">Videos</h2>
+      <div className="videos-grid">
+        {videos.map((video, index) => (
+          <div className="video-card" key={index}>
+            <iframe
+              src={video.link.replace("watch?v=", "embed/")}
+              title={video.title}
+              className="video-frame"
+              allowFullScreen
+            />
+            <h3 className="video-title">{video.title}</h3>
           </div>
         ))}
       </div>
