@@ -5,31 +5,31 @@ const teamMembers = [
   {
     name: "Aarav Doshi",
     role: "Team Leader & Developer",
-    description: "Developed the website ",
+    description: "The tech genius who coded our success and led the way with innovation!",
     img: "doshisolo.jpg",
   },
   {
     name: "Gayatri Srivastava",
     role: "Analytics Coordinator",
-    description: "Built the website to revolutionize e-waste management.",
+    description: "The data whisperer—turned numbers into insights that guided our every decision!",
     img: "gayatrisolo.jpg",
   },
   {
     name: "Raheel Shah",
     role: "Logistics",
-    description: "Spread awareness through campaigns and social media.",
+    description: "The calm in the storm—always resolving issues and keeping the peace when tensions rise!",
     img: "raheelsolo.jpg",
   },
   {
     name: "Divina Minocha",
     role: "Market Research & Strategy",
-    description: "Coordinated logistics and e-bin placements.",
+    description: "The strategist—kept us in check, always knowing the next move!",
     img: "divinasolo.jpg",
   },
   {
     name: "Reeva Agrawal",
     role: "Social Media",
-    description: "Conducted surveys and provided actionable insights.",
+    description: "The voice of our project—posting, sharing, and making sure our message goes viral!",
     img: "reevasolo.jpg",
   },
 ];
