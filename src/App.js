@@ -9,8 +9,11 @@ import AboutUs from "./AboutUs";
 import Awareness from "./Awareness";
 
 function App() {
+  // GitHub Pages project sites are served under /<repository>/, not the domain root.
+  const basePath = new URL(process.env.PUBLIC_URL || "/", window.location.origin).pathname.replace(/\/$/, "") || "/";
+
   return (
-    <Router>
+    <Router basename={basePath}>
       <Navbar />
       <Routes>
         <Route path="/" element={<LandingPage />} />
